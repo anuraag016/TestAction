@@ -1,4 +1,4 @@
-name: 'TestAction'
+name: 'Test Action Delete'
 description: 'A test action to understand lifecycle of actions'
 author: 'anuraag016'
 inputs:

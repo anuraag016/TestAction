@@ -1,8 +1,8 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'TestAction'
+description: 'A test action to understand lifecycle of actions'
+author: 'anuraag016'
 inputs:
-  myInput:              # change this
+  myInput:
     description: 'input description here'
     default: 'default value if applicable'
   milliseconds:

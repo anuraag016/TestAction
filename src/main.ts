@@ -1,8 +1,28 @@
 import * as core from '@actions/core'
+import * as github from '@actions/github'
 import {wait} from './wait'
 
 async function run(): Promise<void> {
   try {
+    const token: string = core.getInput('githubToken')
+    const octokit = new github.GitHub(token)
+    const {repo, owner} = github.context.repo
+    const openIssueResponse = await octokit.issues.listForRepo({
+      repo,
+      owner,
+      state: 'open'
+    })
+    const openUnassignedIssueResponse = await octokit.issues.listForRepo({
+      repo,
+      owner,
+      state: 'open',
+      assignee: 'none'
+    })
+    const openIssues = openIssueResponse.data
+    const openUnassignedIssues = openUnassignedIssueResponse.data
+    core.setOutput('openIssues', `${openIssues.length}`)
+    core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`)
+
     const ms: string = core.getInput('milliseconds')
     core.debug(`Waiting ${ms} milliseconds ...`)
     const myInput: string = core.getInput('myInput')

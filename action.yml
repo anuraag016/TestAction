@@ -3,7 +3,7 @@ description: 'A test action to understand lifecycle of actions'
 author: 'anuraag016'
 inputs:
   githubToken:
-    description: 'Use ${{ GITHUB_TOKEN }}'
+    description: 'Use GITHUB_TOKEN variable'
     default: ${{ github.token }}
   myInput:
     description: 'input description here'

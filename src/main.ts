@@ -33,7 +33,7 @@ async function run(): Promise<void> {
       `${openIssuesLink.replace(
         'api.github.com/repos/',
         'github.com/'
-      )}&no=assignee`
+      )}+no:assignee`
     )
     const ms: string = core.getInput('milliseconds')
     core.debug(`Waiting ${ms} milliseconds ...`)

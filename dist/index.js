@@ -2988,12 +2988,10 @@ async function run() {
         const openIssuesResp = openIssueResponse;
         const openIssuesLink = openIssuesResp.url;
         const openUnassignedIssues = openUnassignedIssueResponse.data;
-        const openIssuesUnassignedResp = openUnassignedIssueResponse;
-        const openIssuesUnassignedLink = openIssuesUnassignedResp.url;
         core.setOutput('openIssues', `${openIssues.length}`);
         core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`);
         core.setOutput('openIssuesLink', openIssuesLink.replace('api.github.com/repos/', 'github.com/'));
-        core.setOutput('openIssuesUnassignedLink', openIssuesUnassignedLink.replace('api.github.com/repos/', 'github.com/'));
+        core.setOutput('openIssuesUnassignedLink', `${openIssuesLink.replace('api.github.com/repos/', 'github.com/')}&no=assignee`);
         const ms = core.getInput('milliseconds');
         core.debug(`Waiting ${ms} milliseconds ...`);
         const myInput = core.getInput('myInput');

@@ -22,8 +22,6 @@ async function run(): Promise<void> {
     const openIssuesResp: any = openIssueResponse
     const openIssuesLink: string = openIssuesResp.url
     const openUnassignedIssues = openUnassignedIssueResponse.data
-    const openIssuesUnassignedResp: any = openUnassignedIssueResponse
-    const openIssuesUnassignedLink: string = openIssuesUnassignedResp.url
     core.setOutput('openIssues', `${openIssues.length}`)
     core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`)
     core.setOutput(
@@ -32,7 +30,10 @@ async function run(): Promise<void> {
     )
     core.setOutput(
       'openIssuesUnassignedLink',
-      openIssuesUnassignedLink.replace('api.github.com/repos/', 'github.com/')
+      `${openIssuesLink.replace(
+        'api.github.com/repos/',
+        'github.com/'
+      )}&no=assignee`
     )
     const ms: string = core.getInput('milliseconds')
     core.debug(`Waiting ${ms} milliseconds ...`)

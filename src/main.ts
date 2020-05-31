@@ -18,6 +18,7 @@ async function run(): Promise<void> {
       state: 'open',
       assignee: 'none'
     })
+    console.log(openIssueResponse)
     const openIssues = openIssueResponse.data
     const openIssuesLink = openIssueResponse.headers.link
     const openUnassignedIssues = openUnassignedIssueResponse.data

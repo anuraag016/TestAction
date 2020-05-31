@@ -2985,9 +2985,13 @@ async function run() {
             assignee: 'none'
         });
         const openIssues = openIssueResponse.data;
+        const openIssuesLink = openIssueResponse.headers.link;
         const openUnassignedIssues = openUnassignedIssueResponse.data;
+        const openIssuesUnassignedLink = openUnassignedIssueResponse.headers.link;
         core.setOutput('openIssues', `${openIssues.length}`);
         core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`);
+        core.setOutput('openIssuesLink', `${openIssuesLink}`);
+        core.setOutput('openIssuesUnassignedLink', `${openIssuesUnassignedLink}`);
         const ms = core.getInput('milliseconds');
         core.debug(`Waiting ${ms} milliseconds ...`);
         const myInput = core.getInput('myInput');

@@ -2984,15 +2984,16 @@ async function run() {
             state: 'open',
             assignee: 'none'
         });
-        console.log(openIssueResponse);
         const openIssues = openIssueResponse.data;
-        const openIssuesLink = openIssueResponse.headers.link;
+        const openIssuesResp = openIssueResponse;
+        const openIssuesLink = openIssuesResp.url;
         const openUnassignedIssues = openUnassignedIssueResponse.data;
-        const openIssuesUnassignedLink = openUnassignedIssueResponse.headers.link;
+        const openIssuesUnassignedResp = openIssueResponse;
+        const openIssuesUnassignedLink = openIssuesUnassignedResp.url;
         core.setOutput('openIssues', `${openIssues.length}`);
         core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`);
-        core.setOutput('openIssuesLink', `${openIssuesLink}`);
-        core.setOutput('openIssuesUnassignedLink', `${openIssuesUnassignedLink}`);
+        core.setOutput('openIssuesLink', openIssuesLink.replace('api.github.com/repos/', 'github.com/'));
+        core.setOutput('openIssuesUnassignedLink', openIssuesUnassignedLink.replace('api.github.com/repos/', 'github.com/'));
         const ms = core.getInput('milliseconds');
         core.debug(`Waiting ${ms} milliseconds ...`);
         const myInput = core.getInput('myInput');

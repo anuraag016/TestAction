@@ -2991,7 +2991,9 @@ async function run() {
         core.setOutput('openIssues', `${openIssues.length}`);
         core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`);
         core.setOutput('openIssuesLink', openIssuesLink.replace('api.github.com/repos/', 'github.com/'));
-        core.setOutput('openIssuesUnassignedLink', `${openIssuesLink.replace('api.github.com/repos/', 'github.com/')}+no%3Aassignee`);
+        core.setOutput('openIssuesUnassignedLink', openIssuesLink
+            .replace('api.github.com/repos/', 'github.com/')
+            .replace('state=open', 'q=is%3Aopen+no%3Aassignee'));
         const ms = core.getInput('milliseconds');
         core.debug(`Waiting ${ms} milliseconds ...`);
         const myInput = core.getInput('myInput');

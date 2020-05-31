@@ -30,10 +30,9 @@ async function run(): Promise<void> {
     )
     core.setOutput(
       'openIssuesUnassignedLink',
-      `${openIssuesLink.replace(
-        'api.github.com/repos/',
-        'github.com/'
-      )}+no%3Aassignee`
+      openIssuesLink
+        .replace('api.github.com/repos/', 'github.com/')
+        .replace('state=open', 'q=is%3Aopen+no%3Aassignee')
     )
     const ms: string = core.getInput('milliseconds')
     core.debug(`Waiting ${ms} milliseconds ...`)

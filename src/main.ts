@@ -22,7 +22,7 @@ async function run(): Promise<void> {
     const openIssuesResp: any = openIssueResponse
     const openIssuesLink: string = openIssuesResp.url
     const openUnassignedIssues = openUnassignedIssueResponse.data
-    const openIssuesUnassignedResp: any = openIssueResponse
+    const openIssuesUnassignedResp: any = openUnassignedIssueResponse
     const openIssuesUnassignedLink: string = openIssuesUnassignedResp.url
     core.setOutput('openIssues', `${openIssues.length}`)
     core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`)

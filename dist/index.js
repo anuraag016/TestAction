@@ -2988,7 +2988,7 @@ async function run() {
         const openIssuesResp = openIssueResponse;
         const openIssuesLink = openIssuesResp.url;
         const openUnassignedIssues = openUnassignedIssueResponse.data;
-        const openIssuesUnassignedResp = openIssueResponse;
+        const openIssuesUnassignedResp = openUnassignedIssueResponse;
         const openIssuesUnassignedLink = openIssuesUnassignedResp.url;
         core.setOutput('openIssues', `${openIssues.length}`);
         core.setOutput('openIssuesUnassigned', `${openUnassignedIssues.length}`);

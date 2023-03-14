@@ -30,10 +30,10 @@ jobs:
             echo $GITHUB_EVENT_NAME
             export GITHUB_EVENT_NAME=test
             echo $GITHUB_EVENT_NAME
-            echo.
+            echo 
             cat $GITHUB_EVENT_PATH
             echo test > $GITHUB_EVENT_PATH
-            echo.
+            echo 
             cat $GITHUB_EVENT_PATH
     - name: Get the output EVENT
       run: |
@@ -42,6 +42,6 @@ jobs:
             echo $GITHUB_EVENT_NAME
             export GITHUB_EVENT_NAME=test
             echo $GITHUB_EVENT_NAME
-            echo.
+            echo 
             cat $GITHUB_EVENT_PATH
             set

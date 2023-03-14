@@ -30,9 +30,12 @@ jobs:
             echo $GITHUB_EVENT_NAME
             export GITHUB_EVENT_NAME=test
             echo $GITHUB_EVENT_NAME
+            set
     - name: Get the output EVENT
       run: |
+            set
             echo "The time was ${{ steps.hello.outputs.time }}"
             echo $GITHUB_EVENT_NAME
             export GITHUB_EVENT_NAME=test
             echo $GITHUB_EVENT_NAME
+            set
